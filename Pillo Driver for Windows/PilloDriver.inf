@@ -1,0 +1,50 @@
+;     Windows PILLO Driver Setup File
+; Copyright (c) 2015 Pillo
+
+[DefaultInstall]
+CopyINF="PilloDriver.inf"
+
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%MFGNAME%
+DriverVer=7/1/2012,10.0.0.0
+
+[Manufacturer]
+%MFGNAME%=DeviceList, NTx86, NTamd64, NTia64
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[DriverInstall]
+Include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=DriverInstall.AddReg
+
+[DriverInstall.Services]
+Include=mdmcpq.inf
+AddService=usbser, 0x00000002, LowerFilter_Service_Inst
+
+[DriverInstall.AddReg]
+HKR,,EnumPropPages32,,"msports.dll,SerialPortPropPageProvider"
+
+[DeviceList]
+%DESCRIPTION%=DriverInstall, USB\VID_03EB&PID_2018
+
+[DeviceList.NTx86]
+%DESCRIPTION%=DriverInstall, USB\VID_03EB&PID_2018
+
+[DeviceList.NTamd64]
+%DESCRIPTION%=DriverInstall, USB\VID_03EB&PID_2018
+
+[DeviceList.NTia64]
+%DESCRIPTION%=DriverInstall, USB\VID_03EB&PID_2018
+
+[Strings]
+MFGNAME="PILLO"
+DESCRIPTION="PILLO Game Controller"
