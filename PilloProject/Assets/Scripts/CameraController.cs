@@ -7,10 +7,21 @@ public class CameraController : MonoBehaviour
     private GameObject m_CarToAttach;
 
     [SerializeField]
-    private Vector3 m_OffSet;
+    private float m_Distance;
+    [SerializeField]
+    private float m_Height;
+    [SerializeField]
+    private float m_LerpSpeed;
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x + m_OffSet.x, transform.position.y + m_OffSet.y, transform.position.z + m_OffSet.z);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(GetBehindPosition(m_CarToAttach, m_Distance).x, GetBehindPosition(m_CarToAttach, m_Distance).y + m_Height, GetBehindPosition(m_CarToAttach, m_Distance).z), m_LerpSpeed * Time.deltaTime);
+
+        transform.LookAt(Vector3.Lerp(transform.position, m_CarToAttach.transform.position, m_LerpSpeed * Time.deltaTime));
+    }
+
+    private Vector3 GetBehindPosition(GameObject target, float distance)
+    {
+        return target.transform.position - target.transform.forward * distance;
     }
 }
