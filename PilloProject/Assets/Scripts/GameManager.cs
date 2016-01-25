@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     {
         PilloController.ConfigureSensorRange(0x50, 0x6f);
 
-        //m_TeamCL[0] = m_TeamSL[0];
-        //m_TeamCL[1] = m_TeamSL[1];
+        m_TeamCL = new int[2];
+
+        m_TeamCL[0] = m_TeamSL[0];
+        m_TeamCL[1] = m_TeamSL[1];
     }
 
     void Update()
