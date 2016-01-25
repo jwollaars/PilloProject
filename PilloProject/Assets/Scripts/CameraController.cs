@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject m_CarToAttach;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    [SerializeField]
+    private Vector3 m_OffSet;
+
+    void Update()
+    {
+        transform.position = new Vector3(transform.position.x + m_OffSet.x, transform.position.y + m_OffSet.y, transform.position.z + m_OffSet.z);
+    }
 }

@@ -9,11 +9,14 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private int m_PlayerID;
 
-    private float m_Acceleration = 2f;
-    private float m_DeAcceleration = 1f;
+    private float m_Acceleration = 10f;
+    private float m_CurrentAcceleration = 10f;
+    private float m_DeAcceleration = 10f;
+    private float m_CurrentDeAcceleration = 10f;
 
     private float m_MinMPH = 0f;
     public float m_CurrentMPH = 0f;
+    public float m_TargetMPH = 0f;
     private float m_MaxMPH = 120f;
 
     private GameManager m_GameManager;
@@ -32,23 +35,24 @@ public class CarController : MonoBehaviour
     {
         m_PilloInput = m_GameManager.GetPilloSensorByID((PilloID)m_PlayerID);
 
-        if (m_PilloInput > 0.01f)
+        m_TargetMPH = m_MaxMPH * m_PilloInput;
+
+        if (m_CurrentMPH < m_TargetMPH)
         {
-            if (m_CurrentMPH < m_MaxMPH)
-            {
-                m_CurrentMPH += m_Acceleration;
-            }
-            else
-            {
-                m_CurrentMPH = m_MaxMPH;
-            }
+            m_CurrentDeAcceleration = m_DeAcceleration;
+            m_CurrentMPH += m_CurrentAcceleration;
+            m_CurrentAcceleration = (m_Acceleration / m_CurrentMPH) * m_PilloInput;
         }
-        else if (m_PilloInput < 0.01f)
+        else if (m_CurrentMPH > m_TargetMPH)
         {
-            if (m_CurrentMPH > m_MinMPH)
-            {
-                m_CurrentMPH -= m_DeAcceleration;
-            }
+            m_CurrentAcceleration = m_Acceleration;
+            m_CurrentMPH -= m_CurrentDeAcceleration;
+            m_CurrentDeAcceleration = m_DeAcceleration / m_CurrentMPH;
+        }
+
+        if (m_CurrentMPH <= m_MinMPH)
+        {
+            m_CurrentMPH = m_MinMPH;
         }
     }
 }
