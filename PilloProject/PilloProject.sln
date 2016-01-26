@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PilloProject.CSharp", "PilloProject.CSharp.csproj", "{F143E72E-C40C-56B0-601A-722D3B89761F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PilloProject.CSharp.Editor", "PilloProject.CSharp.Editor.csproj", "{5A05058D-0D1C-FBBA-A57B-F286AEE91C1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{F143E72E-C40C-56B0-601A-722D3B89761F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F143E72E-C40C-56B0-601A-722D3B89761F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F143E72E-C40C-56B0-601A-722D3B89761F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A05058D-0D1C-FBBA-A57B-F286AEE91C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A05058D-0D1C-FBBA-A57B-F286AEE91C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A05058D-0D1C-FBBA-A57B-F286AEE91C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A05058D-0D1C-FBBA-A57B-F286AEE91C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
