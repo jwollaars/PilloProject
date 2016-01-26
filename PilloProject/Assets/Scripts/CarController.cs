@@ -11,8 +11,8 @@ public class CarController : MonoBehaviour
 
     private float m_Acceleration = 10f;
     private float m_CurrentAcceleration = 10f;
-    private float m_DeAcceleration = 10f;
-    private float m_CurrentDeAcceleration = 10f;
+    private float m_DeAcceleration = 20f;
+    private float m_CurrentDeAcceleration = 20f;
 
     private float m_MinMPH = 0f;
     public float m_CurrentMPH = 0f;
