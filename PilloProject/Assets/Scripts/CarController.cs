@@ -4,20 +4,25 @@ using System.Collections.Generic;
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField]
+    private int m_PlayerID;
+
     private float m_InputHorizontal;
     private float m_InputVertical;
 
     private bool m_BlockInput;
 
-    private float m_Acceleration = 20f;
-    private float m_CurrentAcceleration = 20f;
-    private float m_DeAcceleration = 40f;
-    private float m_CurrentDeAcceleration = 40f;
+    private float m_Acceleration = 10f;
+    private float m_CurrentAcceleration = 10f;
+    private float m_DeAcceleration = 20f;
+    private float m_CurrentDeAcceleration = 20f;
 
     private float m_MinMPH = 0f;
     private float m_CurrentMPH = 0f;
     private float m_MaxMPH = 120f;
     private float m_TargetMPH = 0f;
+
+    private float m_AmountToRotate = 0f;
 
     private bool m_Respawn = false;
     private float m_CurrentRespawnTimer = 3f;
@@ -35,7 +40,8 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GasAndSteer();
+        Gas();
+        Steer();
         Respawn();
     }
 
@@ -48,17 +54,15 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void GasAndSteer()
+    private void Gas()
     {
         if (!m_BlockInput)
         {
-            m_InputHorizontal = Input.GetAxisRaw("Horizontal");
-            m_InputVertical = Input.GetAxisRaw("Vertical");
-
+            m_InputVertical = Input.GetAxis("Right Trigger " + m_PlayerID);
 
             m_TargetMPH = m_MaxMPH * m_InputVertical;
 
-            if (m_InputVertical != 0f)
+            if (m_InputVertical != 0)
             {
                 if (m_InputVertical >= 0.01f)
                 {
@@ -87,11 +91,6 @@ public class CarController : MonoBehaviour
                     m_CurrentDeAcceleration = m_DeAcceleration / m_CurrentMPH;
                     m_CurrentAcceleration = m_Acceleration;
                 }
-            }
-
-            if (m_InputHorizontal != 0f)
-            {
-                transform.Rotate(new Vector3(0f, m_InputHorizontal * 100f * Time.deltaTime, 0f));
             }
 
             if (m_CurrentMPH > 0.01f)
@@ -123,6 +122,16 @@ public class CarController : MonoBehaviour
             }
 
             transform.Translate(Vector3.forward * m_CurrentMPH * Time.deltaTime);
+        }
+    }
+
+    private void Steer()
+    {
+        m_InputHorizontal = Input.GetAxis("Horizontal " + m_PlayerID);
+
+        if (m_InputHorizontal != 0f && Mathf.Abs(m_CurrentMPH) >= 10f)
+        {
+            transform.Rotate(new Vector3(0f, ((m_InputHorizontal * 100f) / (m_CurrentMPH / 10f)) * Time.deltaTime, 0f));
         }
     }
 

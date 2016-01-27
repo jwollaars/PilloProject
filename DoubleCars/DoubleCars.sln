@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleCars.CSharp.Plugins", "DoubleCars.CSharp.Plugins.csproj", "{96FA8C5A-6A8B-EF09-F611-7D1FF706810C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleCars.CSharp", "DoubleCars.CSharp.csproj", "{3FBDDF57-EAB3-16EC-F568-977808361419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleCars.CSharp.Editor", "DoubleCars.CSharp.Editor.csproj", "{CF99C634-7F2D-1CD1-66E7-73355FD11068}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96FA8C5A-6A8B-EF09-F611-7D1FF706810C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FA8C5A-6A8B-EF09-F611-7D1FF706810C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FA8C5A-6A8B-EF09-F611-7D1FF706810C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FA8C5A-6A8B-EF09-F611-7D1FF706810C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FBDDF57-EAB3-16EC-F568-977808361419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FBDDF57-EAB3-16EC-F568-977808361419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FBDDF57-EAB3-16EC-F568-977808361419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FBDDF57-EAB3-16EC-F568-977808361419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF99C634-7F2D-1CD1-66E7-73355FD11068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF99C634-7F2D-1CD1-66E7-73355FD11068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF99C634-7F2D-1CD1-66E7-73355FD11068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF99C634-7F2D-1CD1-66E7-73355FD11068}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

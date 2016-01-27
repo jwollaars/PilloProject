@@ -1,4 +1,0 @@
-README
-
-Driver install for Windows 8
-See: http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/
